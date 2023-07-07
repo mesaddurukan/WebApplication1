@@ -1,0 +1,38 @@
+﻿@using WebApplication1.Models
+@model List<departmanlar>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<br />
+<h2>Departman Listesi</h2>
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Departman</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    @{int a = 1;}
+    @foreach(var x in Model)
+     {
+    <tr>
+        <td>@a</td>
+        <td>@x.departmanad</td>
+        <td>
+            <a href="/departt/DepartmanSil/@x.id" class="btn btn-danger">Sil</a>
+        </td>
+        <td>
+            <a href="/departt/DepartmanGetir/@x.id" class="btn btn-success">Güncelle</a>
+        </td>
+        <td>
+            <a href="#" class="btn btn-default" style="background-color:#dee61d">Detayı Gör</a>
+        </td>
+    </tr>
+        a++;
+    }
+</table>
+<a href="/departt/YeniDepartman/" class="btn btn-primary">Yeni Departman</a>  
